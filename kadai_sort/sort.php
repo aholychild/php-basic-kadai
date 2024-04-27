@@ -7,40 +7,36 @@
  </head>
  
  <body>
- <div>
-        <?php
-        function sort_2way(&$array, $order) {
-            if ($order === "ascendant") {
-                sort($array); // 昇順ソート
-            } elseif ($order === "descendant") {
-                rsort($array); // 降順ソート
-            } else {
-                echo "無効な順序が指定されました。";
-            }
+<p>
+<?php
+function sort_2way(&$array, $order) {
+    if ($order === "ascendant") {
+        sort($array); // 昇順ソート
+        echo "昇順にソートします。<br>";
+        foreach ($array as $num) {
+            echo $num . " <br>";
         }
-        
-        // ソートする配列を宣言
-        $nums = [15, 4, 18, 23, 10 ];
+    } elseif ($order === "descendant") {
+        rsort($array); // 降順ソート
+        echo "降順にソートします。<br>";
+        foreach ($array as $num) {
+            echo $num . " <br>";
+        }
+    } else {
+        echo "無効な順序が指定されました。";
+    }
+}
 
-        // 昇順ソート
-        sort_2way($nums, "ascendant");
-        echo "昇順にソートします。";
-        echo "<br>";
-        foreach ($nums as $num) {
-            echo $num . " ";
-            echo "<br>";
-        }
+// ソートする配列を宣言
+$nums = [15, 4, 18, 23, 10 ];
 
-        // 降順ソート
-        sort_2way($nums, "descendant");
-        echo "降順にソートします。";
-        echo "<br>";
-        foreach ($nums as $num) {
-            echo $num . " ";
-            echo "<br>";
-        }
-        ?>
-    </div>
+// 昇順ソート
+sort_2way($nums, "ascendant");
+
+// 降順ソート
+sort_2way($nums, "descendant");
+?>
+</p>
  </body>
  
  </html>
