@@ -16,6 +16,10 @@ $department = $_POST['department'];
 if (empty($age) ) {
     $errors[] = '年齢を入力してください。';
 }
+ // リスト内の所属部署が指定されているか
+if (!in_array( $department, ['開発部', '営業部', '人事部'] ) ) {
+    exit('正しい所属部署を指定してください。');
+}
 ?>
 
 <!DOCTYPE html>
